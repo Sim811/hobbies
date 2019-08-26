@@ -1,0 +1,18 @@
+<h1>HOBBIES</h1>
+
+<%= button_to "Log Out", destroy_user_session_path %>
+<h1>Welcome <%= current_user.first_name %></h2>
+<hr />
+<%= link_to "Add Hobby", new_hobby_path  %>
+  <h3>Your Hobbies</h3>
+  <ul>
+      <% @hobbies.each do |hobby| %>
+        <li>
+          <%= hobby.name %>
+           <div>
+             <%= link_to "Delete", hobby_path(hobby), method: :delete  %>
+             <%= link_to "Edit", edit_hobby_path(hobby) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
